@@ -1,0 +1,72 @@
+-------------------Pagination------------------------
+
+STORED PROCEDURE:
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pagination`(IN page_number int, In tot_rows INT)
+BEGIN
+DECLARE temp int;
+SET temp=page_number-1;
+SET temp=temp*tot_rows;
+SELECT * from employee limit temp,tot_rows;
+END
+
+SQL QUERY:
+call pagination(1,3);
+
+
+---------------------Triggers-------------------------
+
+USE testdb;
+
+SELECT * FROM EMPLOYEE;
+
+----------------------------------"BEFORE INSERT TRIGGER"-------------------
+
+CREATE TRIGGER Cumulative BEFORE INSERT ON EMPLOYEE FOR EACH ROW SET @tot = @tot + NEW.id;
+
+SET @tot = 0;
+
+INSERT INTO EMPLOYEE VALUES(30,'Omkar','Raykar',1), (35, 'Darshan', 'Patil', 2), (40, 'Rohan','Pawar', 3), (45, 'Rohit','Gonsalves',1);
+
+SELECT @tot AS 'Cumulative Total';
+
+
+----------------------------------------"INSTEAD OF DELETE TRIGGER"-------------------
+
+CREATE TABLE SALARIES (EMP_NUMBER INT PRIMARY KEY, VALID DATE, AMOUNT DEC(12,2) DEFAULT 0);
+
+INSERT INTO SALARIES VALUES(2,'2000-01-01',50000), (3,'2000-01-01',60000), (4,'2000-01-01',70000);
+
+SELECT * FROM SALARIES;
+
+CREATE TABLE SALARY_ARC (
+    ID INT PRIMARY KEY,
+    EMP_NUM INT,
+    VALID DATE,
+    AMOUNT DEC(12 , 2 ),
+    DELETED_AT TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TRIGGER SalDelete BEFORE DELETE ON SALARIES FOR EACH ROW
+INSERT INTO SALARY_ARC VALUES(OLD.EMP_NUMBER,OLD.VALID,OLD.AMOUNT);
+
+DELETE FROM SALARIES WHERE EMP_NUMBER = 4;
+
+----------------------------------"BEFORE UPDATE TRIGGER"-------------------
+
+CREATE TABLE EMP_RECORD(ID INT PRIMARY KEY, FIRSTNM VARCHAR(100), LASTNM VARCHAR(100), DEPT_ID INT, OPERATION VARCHAR(50));
+
+CREATE TRIGGER RecordUpdate BEFORE UPDATE ON EMPLOYEE FOR EACH ROW 
+INSERT INTO EMP_RECORD
+SET OPERATION = "update",
+DEPT_ID = OLD.DEPT_ID,
+LASTNM = OLD.LASTNM,
+FIRSTNM = OLD.FIRSTNM,
+ID = OLD.ID;
+
+UPDATE EMPLOYEE SET DEPT_ID=3 WHERE ID = 2;
+SELECT * FROM EMP_RECORD;
+
+
+
+
+
