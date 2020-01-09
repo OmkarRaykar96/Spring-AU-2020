@@ -1,0 +1,28 @@
+.form-container{
+position: absolute;
+margin-top: 15vh;
+background:white;
+padding: 30px;
+border-radius: 10px;
+box-shadow: 0px 0px 10px 0px black;
+border: 5px;
+}
+
+.pbar {
+ animation-iteration-count: infinite;
+ border: 10px;
+ border-radius: 10px;
+ height: 50px;
+ background-color: #FFFFFF;
+ animation-name: ProgressBar;
+ animation-duration: 5s;
+}
+
+@keyframes ProgressBar {
+            0%   {  background-color: #e4eaf5; width:0%; }
+            20%  {  background-color: #b7caec; width:20%; }
+            40%  {  background-color: #557eca; width:40%; }
+            60%  {  background-color: #2a55a7; width:60%; }
+            80%  {  background-color: #1a438f; width:80%; }
+            100% {  background-color: #052a6e; width:100%; }
+}
