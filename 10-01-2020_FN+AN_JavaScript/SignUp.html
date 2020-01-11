@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>SignUp Assignment</title>
+    <script src="SignUP.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div align="center" style="margin-top: 100px;">
+<form action="">
+        <table style="border: 2px;">
+        <tr>
+            <td>Username: </td>
+            <td><input type="text" id="username" required></td> 
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td><input type="password" id="pass" required></td>
+        </tr>
+        <tr>
+            <td>Confirm Password: </td>
+            <td><input type="password" id="cpass" required></td>
+        </tr>
+        <tr align="center">
+            <td colspan="2"><input type="button" value="Submit" onclick="validate()"> </td> 
+        </tr>
+        </table>
+    </form>
+</div>
+
+<div align="center">
+        <p id="char8" style="display: none;">• Password cannot be less than 8 characters</p>
+        <p id="match" style="display: none;">• Passwords do not match</p>
+        <p id="specialchar" style="display: none;">• Password should contain atleast 1 special character ($,@,*)</p>
+        <p id="numero" style="display: none;">• Password should contain atleast 1 Number (0-9)</p>
+        <p id="sequence" style="display: none;">• Password should contain abc</p>
+        <p id="uclc" style="display: none;">• Password should contain atleast 1 UPPERCASE & 1 LOWERCASE Character</p>
+</div>
+
+
+</body>
+</html>

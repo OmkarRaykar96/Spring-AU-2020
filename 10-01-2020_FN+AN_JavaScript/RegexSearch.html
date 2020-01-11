@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Search Users</title>
+    <script src="RegexSearch.js"></script>
+</head>
+<body>
+<p style="align-content: center;" id="EU">asdas</p>
+<script>var names1=["Omkar Raykar","Rohit Gonsalves","Gaurav Yadav","Darshan Patil","Rohan Pawar","Abhigyan Nayak","Aakash Niwane","Sourabh Koyande","Mrinal Maheshwari","Shreyas Mistry","Pranay Desai"];
+    var exists=document.getElementById("EU");
+    exists.innerHTML= "Existing Users: "+names;</script>
+
+<div align="center" style="margin-top: 100px;">
+
+<table>
+    <tr>
+        <td>Name: </td>
+        <td><input type="text" placeholder="Enter your name"></td>
+    </tr>
+    <tr>
+        <td>Country: </td>
+        <td><select aria-placeholder="Select your Country">
+            <option value="India">India</option>
+            <option value="America">America</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Srilanka">Srilanka</option>
+          </select></td>
+    </tr>
+    
+    <tr>
+        <td>Username:</td>
+        <td><input type="text" id="uname" onkeyup="search()" placeholder="Enter username"></td>
+    </tr>
+
+    <tr align="center">
+        <td colspan="2"><textarea rows="20" cols="50" id="userlist" style="font-weight: bold; font-size: larger;" disabled>....</textarea></td>
+    </tr>
+    <tr align="center">
+        <td colspan="2"><input type="button" onclick="sort()" value="Sort"></td>
+    </tr>
+</table>
+
+</body>
+</html>
