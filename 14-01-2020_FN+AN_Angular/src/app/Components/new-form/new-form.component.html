@@ -1,0 +1,28 @@
+<div align="center" style="margin-top: 30vh;">
+<form [formGroup]="profileForm">
+<table style="padding: 2px;">
+    <tr>
+        <td><b>First Name:</b> </td>
+        <td><input type="text" formControlName="FirstName"/></td>
+    </tr>
+    <tr>
+        <td><b>Last Name:</b> </td>
+        <td><input type="text" formControlName="LastName"/></td>
+    </tr>
+    <tr>
+        <td><b>Email ID:</b></td>
+        <td><input type="email" ngModel [email]="true" formControlName="Email"/></td>
+    </tr>
+    <tr>
+        <td><b>Contact No:</b></td>
+        <td><input type="number" formControlName="Contact"/></td>
+    </tr>
+    <tr >
+        <td colspan="2"><input type="submit" [disabled]="!profileForm.valid" style="width: 100%; height: 200%;" (click)="submitForm()" value="Submit"/></td>
+    </tr>
+    <tr >
+        <td colspan="2"><input style="width: 100%; height: 200%;" type="reset"/></td>
+    </tr>
+    </table>
+</form>
+</div>

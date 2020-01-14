@@ -1,0 +1,18 @@
+
+<table  border="1">
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email ID</td>
+        <td>Contact No</td>
+        <td>Delete</td> 
+    </tr>
+    <tr *ngFor="let row of arr2,let i=index;">
+        <td>{{row.FirstName}}</td>
+        <td>{{row.LastName}}</td>
+        <td>{{row.Email}}</td>
+        <td>{{row.Contact}}</td>
+        <td><Button (click)="deleteRow(i)">Delete</Button> </td>
+        <!-- <td><input type="button" (click)="deleteRow(i)">Delete</Button></td> -->
+    </tr>
+</table>
