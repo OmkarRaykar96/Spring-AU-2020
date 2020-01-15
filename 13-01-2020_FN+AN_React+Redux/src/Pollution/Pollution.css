@@ -1,0 +1,12 @@
+table{
+    width: 100%;
+    border-width: 2px;
+}
+
+.textbox{
+    border-style: solid;
+}
+
+.Pollution{
+    text-align: center;
+}
