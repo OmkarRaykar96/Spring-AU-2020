@@ -1,0 +1,23 @@
+create database testdb;
+use testdb;
+
+create table doctor(d_id int,d_name varchar(100));
+create table patient(p_id int,p_name varchar(100),p_d_id int);
+
+insert into patient values(1,"Omkar",1);
+insert into patient values(2,"Gaurav",1);
+insert into patient values(3,"Darshan",2);
+
+insert into doctor values(1,"Dr. Abhigyan");
+insert into doctor values(2,"Dr. Yash");
+insert into doctor values(3,"Dr. Aakash");
+
+select * from doctor;
+select * from patient;
+call doctor_patient();
+
+-------------------------------------------------------------------------
+CREATE PROCEDURE `doctor_patient` ()
+BEGIN
+select * from doctor,patient where doctor.d_id=patient.p_d_id;
+END
